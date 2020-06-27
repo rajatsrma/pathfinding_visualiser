@@ -1,13 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Header.css";
-const Header = () => {
-  return (
-    <nav>
-      <h1>Pathfinding Visualiser</h1>
-      <p>Dijkstra Algorithm</p>
-      <button>Visualise</button>
-    </nav>
-  );
-};
+import dfs from "./Algorithms/Dfs";
+
+class Header extends Component {
+  render() {
+    return (
+      <nav>
+        <a href="#">Pathfinding Visualiser</a>
+        <p>Depth first search</p>
+        <button
+          onClick={() => this.props.onClickHandler(dfs(this.props.properties))}
+        >
+          Visualise
+        </button>
+      </nav>
+    );
+  }
+}
 
 export default Header;
